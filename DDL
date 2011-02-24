@@ -17,7 +17,7 @@ CREATE TABLE padrino(codigo varchar(10) NOT NULL,
 										 nacionalidad varchar(30),
 										 PRIMARY KEY(codigo) );
 
-CREATE TABLE nino(codigo varchar(10) NOT NULL, 
+CREATE TABLE ninos(codigo varchar(10) NOT NULL, 
 									nombre varchar(50) NOT NULL,
 									apellido varchar(50) NOT NULL,
 									estadoPadrinazgo varchar(25),

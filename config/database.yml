@@ -1,3 +1,4 @@
+# 
 # MySQL.  Versions 4.1 and 5.0 are recommended.
 #
 # Install the MySQL driver:
@@ -9,7 +10,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: AsocCompartir_development
+  database: asociacionCompartir
   pool: 5
   username: compartir
   password: datos
@@ -22,7 +23,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: AsocCompartir_test
+  database:  asociacionCompartir
   pool: 5
   username: compartir
   password: datos
