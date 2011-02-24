@@ -461,3 +461,113 @@ Started GET "/index.xls" for 127.0.0.1 at Wed Feb 16 18:34:30 -0600 2011
 Rendered text template (0.0ms)
 Sent data ninos.xls (3.4ms)
 Completed 200 OK in 88ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (17.5ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (49.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (1.9ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.7ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateNinos (20110216021106)
+  [1m[35mSQL (15.9ms)[0m  CREATE TABLE `ninos` (`codigo` varchar(255) NOT NULL, `estado_padrinazgo` varchar(255), `fecha_nac` date, `sexo` varchar(255), `pnombre` varchar(255), `snombre` varchar(255), `papellido` varchar(255), `sapellido` varchar(255), `habita_con` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110216021106')[0m
+  [1m[35mSQL (1.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (3.1ms)[0m  [1mdescribe `ninos`[0m
+  [1m[35mSQL (0.9ms)[0m  SHOW KEYS FROM `ninos`
+
+
+Started GET "/index.db" for 127.0.0.1 at Sun Feb 20 20:56:42 -0600 2011
+  Processing by NinoController#index as DB
+  [1m[36mNino Load (1.7ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered text template (0.0ms)
+Sent data  (25.9ms)
+Completed 200 OK in 466ms (Views: 25.2ms | ActiveRecord: 1.7ms)
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (14.2ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (55.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateNinos (20110216021106)
+  [1m[35mSQL (8.9ms)[0m  CREATE TABLE `ninos` (`codigo` varchar(255) NOT NULL, `estado_padrinazgo` varchar(30), `fecha_nac` date, `sexo` varchar(255), `pnombre` varchar(25), `snombre` varchar(25), `papellido` varchar(25), `sapellido` varchar(25), `habita_con` varchar(25), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110216021106')[0m
+  [1m[35mSQL (0.9ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (2.2ms)[0m  [1mdescribe `ninos`[0m
+  [1m[35mSQL (1.1ms)[0m  SHOW KEYS FROM `ninos`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (9.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (29.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateNinos (20110216021106)
+  [1m[35mSQL (23.3ms)[0m  CREATE TABLE `ninos` (`codigo` varchar(255) NOT NULL, `estado_padrinazgo` varchar(30), `fecha_nac` date, `sexo` varchar(1), `pnombre` varchar(25), `snombre` varchar(25), `papellido` varchar(25), `sapellido` varchar(25), `habita_con` varchar(25), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110216021106')[0m
+  [1m[35mSQL (0.9ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (4.2ms)[0m  [1mdescribe `ninos`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `ninos`
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (18.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.9ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (7.8ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (2.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateNinos (20110216021106)
+  [1m[35mSQL (13.7ms)[0m  CREATE TABLE `ninos` (`codigo` varchar(255) NOT NULL, `estado_padrinazgo` varchar(30), `fecha_nac` date, `sexo` varchar(1), `pnombre` varchar(25), `snombre` varchar(25), `papellido` varchar(25), `sapellido` varchar(25), `habita_con` varchar(25), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110216021106')[0m
+  [1m[35mSQL (1.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.5ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.6ms)[0m  [1mdescribe `ninos`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `ninos`
+
+
+Started GET "/" for 127.0.0.1 at Sun Feb 20 22:08:27 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[36mNino Load (0.7ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered nino/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 206ms (Views: 59.4ms | ActiveRecord: 0.7ms)
+  [1m[36mNino Load (0.3ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (14.8ms)[0m  describe `ninos`
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO `ninos` (`fecha_nac`, `snombre`, `sapellido`, `codigo`, `updated_at`, `created_at`, `estado_padrinazgo`, `pnombre`, `habita_con`, `papellido`, `sexo`) VALUES (NULL, NULL, NULL, 'htc-1234', '2011-02-21 04:09:10', '2011-02-21 04:09:10', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35mSQL (2.0ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  describe `ninos`
+  [1m[36mAREL (1.5ms)[0m  [1mINSERT INTO `ninos` (`fecha_nac`, `snombre`, `sapellido`, `codigo`, `updated_at`, `created_at`, `estado_padrinazgo`, `pnombre`, `habita_con`, `papellido`, `sexo`) VALUES (NULL, NULL, NULL, 'htc-1234', '2011-02-21 04:14:55', '2011-02-21 04:14:55', NULL, NULL, NULL, NULL, NULL)[0m
+  [1m[35mSQL (50.0ms)[0m  COMMIT
+  [1m[36mNino Load (0.7ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (29.4ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (1.9ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (14.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (1.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (4.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateNinos (20110216021106)
+  [1m[35mSQL (37.8ms)[0m  CREATE TABLE `ninos` (`codigo` varchar(255) NOT NULL, `estado_padrinazgo` varchar(30), `fecha_nac` date, `sexo` varchar(1), `pnombre` varchar(25), `snombre` varchar(25), `papellido` varchar(25), `sapellido` varchar(25), `habita_con` varchar(25), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110216021106')[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mSQL (2.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (2.1ms)[0m  [1mdescribe `ninos`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `ninos`
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  SHOW TABLES
+  [1m[36mNino Load (0.7ms)[0m  [1mSELECT `ninos`.`codigo` FROM `ninos` WHERE (`ninos`.`codigo` = BINARY 'htc-1234') LIMIT 1[0m
+  [1m[35mSQL (3.0ms)[0m  describe `ninos`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `ninos` (`fecha_nac`, `sexo`, `habita_con`, `papellido`, `pnombre`, `codigo`, `snombre`, `updated_at`, `created_at`, `estado_padrinazgo`, `sapellido`) VALUES (NULL, NULL, NULL, NULL, NULL, 'htc-1234', NULL, '2011-02-21 04:48:29', '2011-02-21 04:48:29', NULL, NULL)[0m
+  [1m[35mSQL (36.4ms)[0m  COMMIT
+  [1m[36mSQL (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mNino Load (0.7ms)[0m  SELECT `ninos`.`codigo` FROM `ninos` WHERE (`ninos`.`codigo` = BINARY 'htc-1234') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mROLLBACK[0m

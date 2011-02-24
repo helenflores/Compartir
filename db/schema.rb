@@ -12,15 +12,16 @@
 
 ActiveRecord::Schema.define(:version => 20110216021106) do
 
-  create_table "ninos", :primary_key => "codigo", :force => true do |t|
-    t.string   "estado_padrinazgo"
+  create_table "ninos", :id => false, :force => true do |t|
+    t.string   "codigo",                          :null => false
+    t.string   "estado_padrinazgo", :limit => 30
     t.date     "fecha_nac"
-    t.string   "sexo"
-    t.string   "pnombre"
-    t.string   "snombre"
-    t.string   "papellido"
-    t.string   "sappellido"
-    t.string   "habita_con"
+    t.string   "sexo",              :limit => 1
+    t.string   "pnombre",           :limit => 25
+    t.string   "snombre",           :limit => 25
+    t.string   "papellido",         :limit => 25
+    t.string   "sapellido",         :limit => 25
+    t.string   "habita_con",        :limit => 25
     t.datetime "created_at"
     t.datetime "updated_at"
   end

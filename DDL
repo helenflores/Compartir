@@ -1,0 +1,71 @@
+CREATE DATABASE asociacionCompartir;
+
+USE asociacionCompartir;
+
+CREATE TABLE educador(codigo varchar(10) NOT NULL,
+											nombre varchar(30),
+											apellido varchar(30),
+											PRIMARY KEY(codigo));
+
+CREATE TABLE centro(nombre varchar(30) NOT NULL,
+										sector varchar(20) NOT NULL,
+										codigoAdministrador varchar(10) REFERENCES educador(codigo),
+										PRIMARY KEY(nombre,sector));
+
+CREATE TABLE padrino(codigo varchar(10) NOT NULL,
+										 nombre varchar(50),
+										 nacionalidad varchar(30),
+										 PRIMARY KEY(codigo) );
+
+CREATE TABLE nino(codigo varchar(10) NOT NULL, 
+									nombre varchar(50) NOT NULL,
+									apellido varchar(50) NOT NULL,
+									estadoPadrinazgo varchar(25),
+									fechaNac date,
+									sexo char(1) NOT NULL,
+									habitaCon varchar(30),
+									nombreCentro varchar(30) NOT NULL REFERENCES centro(nombre),
+									nombreSector varchar(20) NOT NULL REFERENCES centro(sector),
+									codigoEducador varchar(10) REFERENCES educador(codigo),
+									PRIMARY KEY (codigo)
+									);
+
+CREATE TABLE apadrina(
+						codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
+						codigoPadrino varchar(10) NOT NULL REFERENCES padrino(codigo),
+						PRIMARY KEY(codigoNino,codigoPadrino)
+					);
+
+CREATE TABLE historial(
+									codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
+									fecha date,
+									foto longblob, 
+									descripcion mediumtext,
+									PRIMARY KEY (codigoNino, fecha)
+								);
+
+
+CREATE TABLE familiar(
+					codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
+				  nombre varchar(30) NOT NULL,
+					apellido varchar(30) NOT NULL,
+					ocupacion varchar(25),
+					salud	varchar(50),
+					salario decimal(11,2),
+					fechaNac date,
+					fechaAct timestamp,
+					estadoCivil varchar(15),
+					parentesco varchar(15),
+					lugarTrabajo varchar(50),
+					PRIMARY KEY ( codigoNino, nombre, apellido)
+					);
+
+CREATE TABLE beneficio(
+				  codigoNino	varchar(10) NOT NULL REFERENCES nino(codigo), 
+					tipoBeneficio varchar(30) NOT NULL,
+					fecha date,
+					detalle text,
+					importe decimal(11,2),
+					observacion text,
+					PRIMARY KEY (codigoNino,tipoBeneficio)
+					);
