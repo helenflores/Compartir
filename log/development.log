@@ -607,3 +607,44 @@ Mysql2::Error: Column 'nombreSector' cannot be null: INSERT INTO `ninos` (`habit
   [1m[35mAREL (0.7ms)[0m  INSERT INTO `ninos` (`habitaCon`, `codigoEducador`, `estadoPadrinazgo`, `nombreSector`, `nombre`, `apellido`, `sexo`, `nombreCentro`, `fechaNac`, `codigo`) VALUES (NULL, NULL, NULL, 'birichiche', 'fernando miguel', 'perez perez', 'm', 'loarque', NULL, 'htc-456')
   [1m[36mSQL (0.2ms)[0m  [1mCOMMIT[0m
   [1m[35mNino Load (2.1ms)[0m  SELECT `ninos`.* FROM `ninos`
+  [1m[36mNino Load (1.8ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+  [1m[36mNino Load (0.3ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+  [1m[35mEducador Load (0.7ms)[0m  SELECT `educadors`.* FROM `educadors`
+Mysql2::Error: Table 'asociacionCompartir.educadors' doesn't exist: SELECT `educadors`.* FROM `educadors`
+  [1m[36mEducador Load (0.8ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (1.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.8ms)[0m  describe `educadors`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `educadors` (`codigo`, `apellido`, `nombre`) VALUES ('EDUC-01', 'fortin', 'gabriel')[0m
+  [1m[35mSQL (41.8ms)[0m  COMMIT
+  [1m[36mEducador Load (0.6ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[36mCentro Load (0.7ms)[0m  [1mSELECT `centros`.* FROM `centros`[0m
+  [1m[36mNino Load (0.6ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+  [1m[35mEducador Load (0.6ms)[0m  SELECT `educadors`.* FROM `educadors`
+  [1m[36mHistorial Load (0.6ms)[0m  [1mSELECT `historials`.* FROM `historials`[0m
+  [1m[35mPrograma Load (0.6ms)[0m  SELECT `programas`.* FROM `programas`
+  [1m[36mPadrino Load (0.6ms)[0m  [1mSELECT `padrinos`.* FROM `padrinos`[0m
+  [1m[35mApadrina Load (0.6ms)[0m  SELECT `apadrinas`.* FROM `apadrinas`
+  [1m[36mCentro Load (0.7ms)[0m  [1mSELECT `centros`.* FROM `centros`[0m
+  [1m[35mBeneficio Load (0.8ms)[0m  SELECT `beneficios`.* FROM `beneficios`
+  [1m[36mFamiliar Load (0.7ms)[0m  [1mSELECT `familiars`.* FROM `familiars`[0m
+  [1m[35mParticipa Load (0.6ms)[0m  SELECT `participas`.* FROM `participas`
+  [1m[36mHistorial Load (0.3ms)[0m  [1mSELECT `historials`.* FROM `historials`[0m
+  [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
+  [1m[36mParticipa Load (0.3ms)[0m  [1mSELECT `participas`.* FROM `participas`[0m
+  [1m[36mEsfamiliar Load (0.8ms)[0m  [1mSELECT `esfamiliars`.* FROM `esfamiliars`[0m
+  [1m[35mTelefono_educador Load (0.9ms)[0m  SELECT `telefono_educadors`.* FROM `telefono_educadors`
+
+
+Started GET "/" for 127.0.0.1 at Thu Feb 24 23:26:07 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[36mNino Load (1.4ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered nino/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 257ms (Views: 38.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Thu Feb 24 23:26:08 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
+Rendered nino/index.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 89ms (Views: 36.5ms | ActiveRecord: 0.3ms)

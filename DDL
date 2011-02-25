@@ -1,21 +1,27 @@
 CREATE DATABASE asociacionCompartir;
-
+GRANT ALL ON asociacionCompartir.* TO compartir IDENTIFIED BY 'datos';
+FLUSH PRIVILEGES;
 USE asociacionCompartir;
 
-CREATE TABLE educador(codigo varchar(10) NOT NULL,
-											nombre varchar(30),
-											apellido varchar(30),
-											PRIMARY KEY(codigo));
+CREATE TABLE educadors(codigo varchar(10) NOT NULL, 
+                      nombre varchar(30),
+		                  apellido varchar(30),
+											PRIMARY KEY (codigo) 
+											) ENGINE=INNODB;
 
-CREATE TABLE centro(nombre varchar(30) NOT NULL,
+CREATE TABLE centros(nombre varchar(30) NOT NULL,
 										sector varchar(20) NOT NULL,
-										codigoAdministrador varchar(10) REFERENCES educador(codigo),
-										PRIMARY KEY(nombre,sector));
+										codigoAdministrador varchar(10),
+										FOREIGN KEY (codigoAdministrador) REFERENCES educadors(codigo),
+										PRIMARY KEY (nombre,sector) 
+										) ENGINE=INNODB;
+										
 
-CREATE TABLE padrino(codigo varchar(10) NOT NULL,
+CREATE TABLE padrinos(codigo varchar(10) NOT NULL,
 										 nombre varchar(50),
 										 nacionalidad varchar(30),
-										 PRIMARY KEY(codigo) );
+										 PRIMARY KEY (codigo)
+										) ENGINE=INNODB;
 
 CREATE TABLE ninos(codigo varchar(10) NOT NULL, 
 									nombre varchar(50) NOT NULL,
@@ -24,29 +30,33 @@ CREATE TABLE ninos(codigo varchar(10) NOT NULL,
 									fechaNac date,
 									sexo char(1) NOT NULL,
 									habitaCon varchar(30),
-									nombreCentro varchar(30) NOT NULL REFERENCES centro(nombre),
-									nombreSector varchar(20) NOT NULL REFERENCES centro(sector),
-									codigoEducador varchar(10) REFERENCES educador(codigo),
+									nombreCentro varchar(30) NOT NULL,
+									nombreSector varchar(20) NOT NULL,
+									codigoEducador varchar(10),
+                  FOREIGN KEY (nombreCentro,nombreSector) REFERENCES centros(nombre,sector),
+                  FOREIGN KEY (codigoEducador) REFERENCES educadors(codigo),
 									PRIMARY KEY (codigo)
-									);
+									) ENGINE=INNODB;
 
-CREATE TABLE apadrina(
-						codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
-						codigoPadrino varchar(10) NOT NULL REFERENCES padrino(codigo),
-						PRIMARY KEY(codigoNino,codigoPadrino)
-					);
+CREATE TABLE apadrinas(
+						codigoNino varchar(10) NOT NULL,
+						codigoPadrino varchar(10) NOT NULL,
+            FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
+            FOREIGN KEY (codigoPadrino) REFERENCES padrinos(codigo),
+						PRIMARY KEY (codigoNino,codigoPadrino)
+					) ENGINE=INNODB;
 
-CREATE TABLE historial(
-									codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
+CREATE TABLE historials(
+									codigoNino varchar(10) NOT NULL,
 									fecha date,
 									foto longblob, 
 									descripcion mediumtext,
+                  FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
 									PRIMARY KEY (codigoNino, fecha)
-								);
+								) ENGINE=INNODB;
 
 
-CREATE TABLE familiar(
-					codigoNino varchar(10) NOT NULL REFERENCES nino(codigo),
+CREATE TABLE familiars(
 				  nombre varchar(30) NOT NULL,
 					apellido varchar(30) NOT NULL,
 					ocupacion varchar(25),
@@ -57,15 +67,61 @@ CREATE TABLE familiar(
 					estadoCivil varchar(15),
 					parentesco varchar(15),
 					lugarTrabajo varchar(50),
-					PRIMARY KEY ( codigoNino, nombre, apellido)
-					);
+					PRIMARY KEY (nombre, apellido)
+					) ENGINE=INNODB;
 
-CREATE TABLE beneficio(
-				  codigoNino	varchar(10) NOT NULL REFERENCES nino(codigo), 
+CREATE TABLE beneficios(
+				  codigoNino	varchar(10) NOT NULL, 
 					tipoBeneficio varchar(30) NOT NULL,
 					fecha date,
 					detalle text,
 					importe decimal(11,2),
 					observacion text,
+          FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
 					PRIMARY KEY (codigoNino,tipoBeneficio)
-					);
+					) ENGINE=INNODB;
+
+CREATE TABLE situacion_academicas(
+			  codigoNino varchar(10) NOT NULL,
+				anio char(4) NOT NULL,
+				grado char(2),
+				indice decimal(5,2),
+				observacion text,
+        FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
+				PRIMARY KEY (codigoNino,anio)
+				) ENGINE=INNODB;
+
+CREATE TABLE programas(
+				tipo varchar(20) NOT NULL,
+				componente varchar(20) NOT NULL,
+				PRIMARY KEY (tipo,componente)
+			) ENGINE=INNODB;
+
+CREATE TABLE participas(
+				codigoNino varchar(10) NOT NULL,
+				tipoPrograma varchar(20) NOT NULL,
+				componentePrograma varchar(20) NOT NULL,
+        fechaInic date,
+        fechaFinal date,
+        resultado text,
+				FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
+				FOREIGN KEY (tipoPrograma,componentePrograma) REFERENCES programas(tipo,componente),
+				PRIMARY KEY (codigoNino,tipoPrograma,componentePrograma)
+			) ENGINE = INNODB;			
+
+CREATE TABLE esfamiliars(
+        codigoNino varchar(10) NOT NULL,
+        nombreFamiliar varchar(30) NOT NULL,
+				apellidoFamiliar varchar(30) NOT NULL,
+        FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
+        FOREIGN KEY (nombreFamiliar,apellidoFamiliar) REFERENCES familiars(nombre,apellido),
+        PRIMARY KEY (codigoNino,nombreFamiliar,apellidoFamiliar)
+
+        ) ENGINE = INNODB;
+
+CREATE TABLE telefono_educadors(
+       codigoEducador varchar(10) NOT NULL,
+       telefono varchar(16) NOT NULL,
+       FOREIGN KEY (codigoEducador) REFERENCES educadors(codigo) ON DELETE CASCADE,
+       PRIMARY KEY (codigoEducador,telefono)
+       ) ENGINE = INNODB;
