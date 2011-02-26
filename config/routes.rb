@@ -1,5 +1,6 @@
 AsocCompartir::Application.routes.draw do
-  get "/index" => "nino#index"
+  get "/busqueda" => "listados#busqueda"
+	get "/index" => "listados#index"
 	root :to => "nino#index"
 	# The priority is based upon order of creation:
   # first created -> highest priority.

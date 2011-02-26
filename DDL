@@ -41,6 +41,8 @@ CREATE TABLE ninos(codigo varchar(10) NOT NULL,
 CREATE TABLE apadrinas(
 						codigoNino varchar(10) NOT NULL,
 						codigoPadrino varchar(10) NOT NULL,
+						fechaInicio date,
+						fechaInterrupcion date,
             FOREIGN KEY (codigoNino) REFERENCES ninos(codigo),
             FOREIGN KEY (codigoPadrino) REFERENCES padrinos(codigo),
 						PRIMARY KEY (codigoNino,codigoPadrino)

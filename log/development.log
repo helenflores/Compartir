@@ -648,3 +648,352 @@ Started GET "/" for 127.0.0.1 at Thu Feb 24 23:26:08 -0600 2011
   [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
 Rendered nino/index.html.erb within layouts/application (18.0ms)
 Completed 200 OK in 89ms (Views: 36.5ms | ActiveRecord: 0.3ms)
+  [1m[36mEducador Load (23.2ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mSQL (0.3ms)[0m  BEGIN
+  [1m[36mSQL (5.8ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.9ms)[0m  describe `centros`
+  [1m[36mAREL (0.9ms)[0m  [1mINSERT INTO `centros` (`nombre`, `sector`, `codigoAdministrador`) VALUES (NULL, NULL, NULL)[0m
+Mysql2::Error: Column 'nombre' cannot be null: INSERT INTO `centros` (`nombre`, `sector`, `codigoAdministrador`) VALUES (NULL, NULL, NULL)
+  [1m[35mSQL (0.2ms)[0m  ROLLBACK
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  ROLLBACK
+  [1m[36mCentro Load (0.7ms)[0m  [1mSELECT `centros`.* FROM `centros`[0m
+  [1m[35mSQL (0.2ms)[0m  BEGIN
+  [1m[36mSQL (1.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (1.6ms)[0m  describe `educadors`
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO `educadors` (`codigo`, `nombre`, `apellido`) VALUES ('EDUC-01', 'Juan', 'perez')[0m
+  [1m[35mSQL (3.8ms)[0m  COMMIT
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  describe `centros`
+  [1m[36mAREL (1.6ms)[0m  [1mINSERT INTO `centros` (`codigoAdministrador`, `nombre`, `sector`) VALUES ('EDUC-02', 'Loarque', '2')[0m
+Mysql2::Error: Cannot add or update a child row: a foreign key constraint fails (`asociacionCompartir`.`centros`, CONSTRAINT `centros_ibfk_1` FOREIGN KEY (`codigoAdministrador`) REFERENCES `educadors` (`codigo`)): INSERT INTO `centros` (`codigoAdministrador`, `nombre`, `sector`) VALUES ('EDUC-02', 'Loarque', '2')
+  [1m[35mSQL (8.2ms)[0m  ROLLBACK
+  [1m[36mSQL (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  describe `centros`
+  [1m[36mAREL (0.5ms)[0m  [1mINSERT INTO `centros` (`codigoAdministrador`, `nombre`, `sector`) VALUES ('EDUC-01', 'Loarque', '2')[0m
+  [1m[35mSQL (5.0ms)[0m  COMMIT
+  [1m[36mEducador Load (0.7ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mCentro Load (0.6ms)[0m  SELECT `centros`.* FROM `centros`
+  [1m[36mCentro Load (1.2ms)[0m  [1mSELECT `centros`.* FROM `centros` WHERE (`centros`.`sector` = '2') LIMIT 1[0m
+  [1m[35mCentro Load (1.0ms)[0m  SELECT `centros`.* FROM `centros` WHERE (`centros`.`nombre` = 'Loarque') LIMIT 1
+  [1m[36mCentro Load (0.9ms)[0m  [1mSELECT `centros`.* FROM `centros` WHERE (`centros`.`codigoAdministrador` = 'EDUC-01') LIMIT 1[0m
+  [1m[35mCentro Load (0.9ms)[0m  SELECT `centros`.* FROM `centros` WHERE (`centros`.`codigoAdministrador` = 'EDUC-02') LIMIT 1
+  [1m[36mCentro Load (0.8ms)[0m  [1mSELECT `centros`.* FROM `centros` WHERE (`centros`.`codigoAdministrador` = 'EDUC-03') LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 19:18:33 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[36mNino Load (0.7ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered nino/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 197ms (Views: 47.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/listados" for 127.0.0.1 at Fri Feb 25 19:18:38 -0600 2011
+
+ActionController::RoutingError (No route matches "/listados"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 19:23:52 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[36mNino Load (0.3ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered nino/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 125ms (Views: 28.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 19:23:59 -0600 2011
+  Processing by ListadosController#index as HTML
+Rendered listados/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 21:26:58 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
+Rendered nino/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 84ms (Views: 39.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:27:03 -0600 2011
+  Processing by ListadosController#index as HTML
+Rendered listados/index.html.erb within layouts/application (44.4ms)
+Completed   in 88ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <div class="busqueda">
+    2: 	<form id="seleccion" action="/busqueda" method="get">
+    3: 		<%@educador.each do |e| %>
+    4: 			<input type="checkbox" name="educ" value=<%=e.codigo%> />
+    5: 		<%end%>
+    6: 			 
+  app/views/listados/index.html.erb:3:in `_app_views_listados_index_html_erb__421725523__612930938_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (24.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.6ms)
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mEducador Load (0.5ms)[0m  SELECT `educadors`.* FROM `educadors`
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mEducador Load (0.3ms)[0m  SELECT `educadors`.* FROM `educadors`
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 21:31:53 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[36mNino Load (10.5ms)[0m  [1mSELECT `ninos`.* FROM `ninos`[0m
+Rendered nino/index.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 94ms (Views: 39.4ms | ActiveRecord: 10.5ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:31:58 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (0.3ms)[0m  SELECT `educadors`.* FROM `educadors`
+Completed   in 25ms
+
+NoMethodError (undefined method `erb' for #<ListadosController:0xb6d7dcbc>):
+  app/controllers/listados_controller.rb:4:in `index'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (21.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (58.9ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:32:51 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (28.4ms)
+Completed 200 OK in 78ms (Views: 41.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:33:35 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (0.8ms)[0m  SELECT `educadors`.* FROM `educadors`
+Rendered listados/index.html.erb within layouts/application (47.4ms)
+Completed 200 OK in 136ms (Views: 69.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:34:32 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 92ms (Views: 56.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:34:59 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (3.5ms)[0m  SELECT `educadors`.* FROM `educadors`
+Rendered listados/index.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 76ms (Views: 31.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:36:16 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (19.3ms)
+Completed 200 OK in 57ms (Views: 35.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:36:37 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (0.4ms)[0m  SELECT `educadors`.* FROM `educadors`
+Rendered listados/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 52ms (Views: 33.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:38:18 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.4ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 58ms (Views: 30.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/busqueda?buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:38:21 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar"}
+Completed   in 19ms
+
+ActionView::MissingTemplate (Missing template listados/busqueda with {:locale=>[:en, :en], :handlers=>[:rjs, :builder, :rhtml, :rxml, :erb], :formats=>[:html]} in view paths "/home/jose/Dropbox/Clases/BaseDatos/app/views"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (6.5ms)
+
+
+Started GET "/busqueda?educ=todo&educ=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:38:30 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"EDUC-01"}
+Completed   in 21ms
+
+ActionView::MissingTemplate (Missing template listados/busqueda with {:locale=>[:en, :en], :handlers=>[:rjs, :builder, :rhtml, :rxml, :erb], :formats=>[:html]} in view paths "/home/jose/Dropbox/Clases/BaseDatos/app/views"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/missing_template.erb within rescues/layout (2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 21:44:09 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
+Rendered nino/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 89ms (Views: 37.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:44:15 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 59ms (Views: 34.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/busqueda?educ=todo&educ=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:44:20 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"EDUC-01"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_listados_busqueda_html_erb__376779257__613556188_0 at /home/jose/Dropbox/Clases/BaseDatos/app/views/listados/busqueda.html.erb:2)
+Rendered listados/busqueda.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 36ms (Views: 34.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ=todo&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:44:43 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"todo"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_listados_busqueda_html_erb__376779257__613732998_0 at /home/jose/Dropbox/Clases/BaseDatos/app/views/listados/busqueda.html.erb:2)
+Rendered listados/busqueda.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 36ms (Views: 34.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ=todo&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:45:54 -0600 2011
+
+SyntaxError (/home/jose/Dropbox/Clases/BaseDatos/app/controllers/listados_controller.rb:7: syntax error, unexpected kDO
+/home/jose/Dropbox/Clases/BaseDatos/app/controllers/listados_controller.rb:11: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (11.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (32.3ms)
+
+
+Started GET "/busqueda?educ=todo&educ=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:46:03 -0600 2011
+
+SyntaxError (/home/jose/Dropbox/Clases/BaseDatos/app/controllers/listados_controller.rb:7: syntax error, unexpected kDO
+/home/jose/Dropbox/Clases/BaseDatos/app/controllers/listados_controller.rb:11: syntax error, unexpected kEND, expecting $end):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.4ms)
+
+
+Started GET "/busqueda?educ=todo&educ=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:47:26 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"EDUC-01"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_listados_busqueda_html_erb__376779257__614422918_0 at /home/jose/Dropbox/Clases/BaseDatos/app/views/listados/busqueda.html.erb:2)
+Rendered listados/busqueda.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 35ms (Views: 29.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ=todo&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:47:34 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"todo"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_listados_busqueda_html_erb__376779257__614568968_0 at /home/jose/Dropbox/Clases/BaseDatos/app/views/listados/busqueda.html.erb:2)
+Rendered listados/busqueda.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 25ms (Views: 23.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ=todo&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:48:09 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>"todo"}
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_listados_busqueda_html_erb__376779257__614458878_0 at /home/jose/Dropbox/Clases/BaseDatos/app/views/listados/busqueda.html.erb:2)
+Rendered listados/busqueda.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 214ms (Views: 211.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:50:34 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (42.2ms)
+Completed 200 OK in 245ms (Views: 75.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/busqueda?educ%5B%5D=todo&educ%5B%5D=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:50:39 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>["todo", "EDUC-01"]}
+Rendered listados/busqueda.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 38ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ%5B%5D=todo&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:50:52 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>["todo"]}
+Rendered listados/busqueda.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 51ms (Views: 48.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/busqueda?educ%5B%5D=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 21:50:57 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>["EDUC-01"]}
+Rendered listados/busqueda.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 252ms (Views: 83.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Feb 25 21:57:28 -0600 2011
+  Processing by NinoController#index as HTML
+  [1m[35mNino Load (0.3ms)[0m  SELECT `ninos`.* FROM `ninos`
+Rendered nino/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 90ms (Views: 39.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:57:33 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (29.2ms)
+Completed 200 OK in 74ms (Views: 50.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 21:59:04 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (0.3ms)[0m  SELECT `educadors`.* FROM `educadors`
+Rendered listados/index.html.erb within layouts/application (22.1ms)
+Completed 200 OK in 77ms (Views: 42.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 22:04:13 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[36mEducador Load (0.3ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+Rendered listados/index.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 165ms (Views: 120.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/index" for 127.0.0.1 at Fri Feb 25 22:10:54 -0600 2011
+  Processing by ListadosController#index as HTML
+  [1m[35mEducador Load (0.3ms)[0m  SELECT `educadors`.* FROM `educadors`
+Rendered listados/index.html.erb within layouts/application (36.0ms)
+Completed 200 OK in 74ms (Views: 50.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/busqueda?buscar=buscar" for 127.0.0.1 at Fri Feb 25 22:11:03 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar"}
+Rendered listados/busqueda.html.erb within layouts/application (14.0ms)
+Completed   in 33ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <ul>
+    2: 	<%@imprime.each do |i|%>
+    3: 		<li><%=i%></li>
+    4: 	<%end%>
+    5: 
+  app/views/listados/busqueda.html.erb:2:in `_app_views_listados_busqueda_html_erb__376779257__613566548_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (319.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (349.7ms)
+
+
+Started GET "/busqueda?educ%5B%5D=EDUC-01&buscar=buscar" for 127.0.0.1 at Fri Feb 25 22:11:17 -0600 2011
+  Processing by ListadosController#busqueda as HTML
+  Parameters: {"buscar"=>"buscar", "educ"=>["EDUC-01"]}
+Rendered listados/busqueda.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 44ms (Views: 42.4ms | ActiveRecord: 0.0ms)

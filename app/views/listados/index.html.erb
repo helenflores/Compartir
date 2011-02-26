@@ -1,0 +1,15 @@
+<div class="busqueda">
+	<fieldset>
+	<legend>Criterios de busqueda</legend>
+	<form id="seleccion" action="/busqueda" method="get">
+
+		<h3>Educador</h3>
+		<input type="checkbox" class="educ" name="educ[]" value="todo">Todos los educadores</input></br>
+		<%@educador.each do |e| %>
+			<input type="checkbox" class="educ" name="educ[]" value=<%=e.codigo%>><%="#{e.codigo} #{e.nombre} #{e.apellido}"%>  </input></br>
+		<%end%>
+			
+		<input type="submit" name="buscar" value="buscar" />
+	</form>
+	</fieldset>
+</div>
