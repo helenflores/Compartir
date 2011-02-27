@@ -8,6 +8,8 @@ gem 'composite_primary_keys', '=3.1.0'
 gem 'mysql2'
 gem 'to_xls'
 gem 'spreadsheet'
+
+gem 'formtastic' 
 # Use unicorn as the web server
 # gem 'unicorn'
 

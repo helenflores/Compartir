@@ -12,9 +12,9 @@ development:
   reconnect: false
   database: asociacionCompartir
   pool: 5
-  username: compartir
-  password: datos
-  socket: /var/run/mysqld/mysqld.sock
+  username: root
+  password: estefana21
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -25,9 +25,9 @@ test:
   reconnect: false
   database:  asociacionCompartir
   pool: 5
-  username: compartir
-  password: datos
-  socket: /var/run/mysqld/mysqld.sock
+  username: root
+  password: estefana21
+  socket: /tmp/mysql.sock
 
 production:
   adapter: mysql2
@@ -35,6 +35,6 @@ production:
   reconnect: false
   database: AsocCompartir_production
   pool: 5
-  username: compartir
-  password: datos
+  username: root
+  password: estefana21
   socket: /var/run/mysqld/mysqld.sock
