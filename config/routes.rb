@@ -2,7 +2,7 @@ AsocCompartir::Application.routes.draw do
 
   resources :nino
   resources :padrino
-
+  resources :educador
 
   get "/busqueda" => "listados#busqueda"
 	get "/index" => "listados#index"

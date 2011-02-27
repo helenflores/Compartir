@@ -1,6 +1,6 @@
 class PadrinoController < ApplicationController
   def create
-  @padrino= Padrino.new ("codigo" => params[:codigo], "nombre" => params[:nombre], "nacionalidad" => params[:nac]);
+  @padrino= Padrino.new ("codigo" => params[:code], "nombre" => params[:nombre], "nacionalidad" => params[:nac]);
   if @padrino.save
     	redirect_to padrino_path @padrino 
   	else

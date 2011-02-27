@@ -2386,3 +2386,15 @@ ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticit
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.6ms)
 Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.6ms)
+
+
+Started GET "/educador" for 127.0.0.1 at Sun Feb 27 16:12:09 -0600 2011
+  Processing by EducadorController#index as HTML
+Rendered educador/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 16:12:11 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
