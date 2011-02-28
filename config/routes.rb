@@ -1,5 +1,13 @@
 AsocCompartir::Application.routes.draw do
 
+  resources :programa
+
+  resources :situacion_academica
+
+  resources :beneficio
+  
+  resources :apadrina
+
   resources :nino
   resources :padrino
   resources :educador

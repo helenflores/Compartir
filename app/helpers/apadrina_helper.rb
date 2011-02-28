@@ -1,0 +1,2 @@
+module ApadrinaHelper
+end

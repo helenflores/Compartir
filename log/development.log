@@ -2936,3 +2936,79 @@ Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:45:48 -0600 2011
   Processing by EducadorController#new as HTML
 Rendered educador/new.html.erb within layouts/application (7.2ms)
 Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nino/new" for 127.0.0.1 at Sun Feb 27 20:47:01 -0600 2011
+  Processing by NinoController#new as HTML
+Rendered nino/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/centro/new" for 127.0.0.1 at Sun Feb 27 20:47:03 -0600 2011
+  Processing by CentroController#new as HTML
+Rendered centro/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/padrino/new" for 127.0.0.1 at Sun Feb 27 20:47:04 -0600 2011
+  Processing by PadrinoController#new as HTML
+Rendered padrino/new.html.erb within layouts/application (92.4ms)
+Completed 200 OK in 99ms (Views: 98.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:47:06 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:49:16 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/nino/new" for 127.0.0.1 at Sun Feb 27 20:49:18 -0600 2011
+  Processing by NinoController#new as HTML
+Rendered nino/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/centro/new" for 127.0.0.1 at Sun Feb 27 20:49:19 -0600 2011
+  Processing by CentroController#new as HTML
+Rendered centro/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/padrino/new" for 127.0.0.1 at Sun Feb 27 20:49:21 -0600 2011
+  Processing by PadrinoController#new as HTML
+Rendered padrino/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:49:24 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (103.7ms)
+Completed 200 OK in 110ms (Views: 109.7ms | ActiveRecord: 0.0ms)
+  [1m[36mEducador Load (0.4ms)[0m  [1mSELECT `educadors`.* FROM `educadors`[0m
+  [1m[35mPrograma Load (0.5ms)[0m  SELECT `programas`.* FROM `programas`
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:57:25 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/educador/new" for 127.0.0.1 at Sun Feb 27 20:57:27 -0600 2011
+  Processing by EducadorController#new as HTML
+Rendered educador/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+  [1m[36mSituacion_academica Load (0.5ms)[0m  [1mSELECT `situacion_academicas`.* FROM `situacion_academicas`[0m
+
+
+Started GET "/nino/new" for 127.0.0.1 at Sun Feb 27 21:00:57 -0600 2011
+  Processing by NinoController#new as HTML
+Rendered nino/new.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+  [1m[35mSituacion_academica Load (0.1ms)[0m  SELECT `situacion_academicas`.* FROM `situacion_academicas`

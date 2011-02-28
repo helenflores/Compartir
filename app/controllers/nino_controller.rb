@@ -15,7 +15,7 @@ class NinoController < ApplicationController
   	end
 
   	def create
-	@nino = Nino.new("codigo" => params[:code], "nombre"=> params[:nombre], "apellido" => params[:apellido], "estadoPadrinazgo" => params[:padrinazgo], "fechaNac" => params[:fecha], "sexo" => params[:sexo], "habitaCon" => params[:habita], "nombreCentro"=> params[:centro], "nombreSector" => [:sector], "codigoEducador" => params[:codigo]);
+	@nino = Nino.new("codigo" => params[:code], "nombre"=> params[:nombre], "apellido" => params[:apellido], "estadoPadrinazgo" => params[:padrinazgo], "fechaNac" => params[:fecha], "sexo" => params[:sexo], "habitaCon" => params[:habita], "nombreCentro"=> params[:centro], "nombreSector" => [:sector], "codigoEducador" => params[:codigo])
   	if @nino.save
     	redirect_to nino_path @nino 
   	else
