@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Asociacion Compartir</title>
+  <title>Web App</title>
   <%= stylesheet_link_tag "web-app-theme/base", "web-app-theme/themes/drastic-dark/style", "web-app-theme/override", :cache => true %>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
   <%= javascript_include_tag :defaults, :cache => true %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <div id="container">
     <div id="header">
-      <h1><a href="/">Asociacion Compartir</a></h1>
+      <h1><a href="/">Web App</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
           <li><a href="#"><%= t("web-app-theme.profile", :default => "Profile") %></a></li>
@@ -32,7 +31,11 @@
       </div>
       <div id="main">
         <%= yield %>
-        
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Web App.</p>
+          </div>      
+        </div>
       </div>
       <div id="sidebar">
         <%= yield :sidebar %>

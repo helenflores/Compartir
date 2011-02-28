@@ -1,5 +1,5 @@
 class NinoController < ApplicationController
-protect_from_forgery :only => [:create, :update, :destroy]
+
 	def index
 		@ninos = Nino.all
 		respond_to do |format|
